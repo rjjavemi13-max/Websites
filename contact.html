@@ -59,7 +59,7 @@
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0a3d62; box-shadow: 0 2px 10px rgba(0,0,0,0.3); padding: 1rem 0;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0a3d62; box-shadow: 0 2px 10px rgba(0,0,0,0.3);">
       <div class="container">
         <a class="navbar-brand" href="index.html" style="display: flex; align-items: center; gap: 15px;">
           <img src="images/ZenithLogo.png" alt="Zenith Legal Advocates Logo" style="width: 70px; height: 70px; border-radius: 50%; border: 3px solid #fff; background-color: #fff; padding: 3px; object-fit: cover;">
@@ -69,7 +69,7 @@
           </div>
         </a>
         <div class="d-flex align-items-center order-lg-2 ml-auto">
-          <a href="tel:+256750100200" class="btn btn-danger btn-sm mr-2" style="background-color: #d4af37; border: none; font-weight: 600; color: #0a3d62;">Call: +256 750 100 200</a>
+          <a href="tel:+256750100200" class="btn btn-danger btn-sm mr-2" style="background-color: #ffffff; border: none; color: #0a3d62; font-weight: bold;">Call: +256 750 100 200</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
         </div>
         <div class="collapse navbar-collapse order-lg-1" id="navbarSupportedContent">
@@ -94,7 +94,7 @@
         </div>
       </div>
     </nav>
-    <header style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: white; padding: 60px 0;">
+    <header style="background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%); color: white; padding: 80px 0;">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-12 text-center">
@@ -118,7 +118,7 @@
               </div>
               <div style="margin-bottom: 30px;">
                 <h4 style="color: #e74c3c; margin-bottom: 15px; font-weight: bold;">Email</h4>
-                <a href="mailto:info@zenithlegal.ug" style="color: #1a1a1a; text-decoration: none; font-size: 1.1rem;">info@zenithlegal.ug</a>
+                <a href="mailto:info@zenithlegal.co.ug" style="color: #1a1a1a; text-decoration: none; font-size: 1.1rem;">info@zenithlegal.co.ug</a>
               </div>
               <div style="margin-bottom: 30px;">
                 <h4 style="color: #e74c3c; margin-bottom: 15px; font-weight: bold;">Office Address</h4>
@@ -142,6 +142,7 @@
           <div class="col-lg-6">
             <div style="background-color: #f8f9fa; padding: 40px; border-radius: 8px;">
               <h2 style="color: #1a1a1a; margin-bottom: 30px; font-size: 1.8rem; font-weight: bold;">Send Us a Message</h2>
+              <div id="formMessage" style="display: none; padding: 15px; margin-bottom: 20px; border-radius: 5px; font-weight: bold;"></div>
               <form id="feedbackForm">
                 <div class="form-group">
                   <label for="name" style="color: #1a1a1a; font-weight: bold;">Full Name *</label>
@@ -175,7 +176,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 style="font-size: 2rem; color: #1a1a1a; margin-bottom: 30px;">Why Choose TABOR Advocates for Your Legal Needs?</h2>
+            <h2 style="font-size: 2rem; color: #1a1a1a; margin-bottom: 30px;">Why Choose Zenith Legal Advocates for Your Legal Needs?</h2>
           </div>
         </div>
         <div class="row">
@@ -203,7 +204,7 @@
       </div>
     </section>
 
-    <footer style="background-color: #1a1a1a; color: #999; padding: 50px 0; border-top: 2px solid #e74c3c;">
+    <footer style="background-color: #0a3d62; color: #bbb; padding: 30px 0; border-top: 3px solid #d4af37;">
       <div class="container">
         <div class="row mb-4">
           <div class="col-lg-3 col-md-6 mb-4">
@@ -232,11 +233,11 @@
             <h5 style="color: white; font-weight: bold; margin-bottom: 20px;">Contact Info</h5>
             <p>
               <strong style="color: white;">Phone:</strong><br>
-              <a href="tel:+256750100200" style="color: #e74c3c; text-decoration: none;">+256 750 100 200</a> / <a href="tel:+256782300400" style="color: #e74c3c; text-decoration: none;">+256 782 300 400</a>
+              <a href="tel:+256750100200" style="color: white; text-decoration: none;">+256 750 100 200</a> / <a href="tel:+256782300400" style="color: white; text-decoration: none;">+256 782 300 400</a>
             </p>
             <p>
               <strong style="color: white;">Email:</strong><br>
-              <a href="mailto:info@zenithadvocates.com" style="color: #e74c3c; text-decoration: none;">info@zenithadvocates.com</a>
+              <a href="mailto:info@zenithlegal.co.ug" style="color: white; text-decoration: none;">info@zenithlegal.co.ug</a>
             </p>
           </div>
         </div>
@@ -248,5 +249,63 @@
     <script src="js/jquery-3.4.1.min.js"></script> 
     <script src="js/popper.min.js"></script> 
     <script src="js/bootstrap-4.4.1.js"></script>
+    <script>
+      // Handle contact form submission
+      document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formMessage = document.getElementById('formMessage');
+        const submitBtn = document.getElementById('feedbackSubmit');
+        const formData = new FormData(this);
+        
+        // Disable submit button during submission
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        
+        // Send form data to PHP handler
+        fetch('submit_form.php', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          formMessage.style.display = 'block';
+          
+          if (data.success) {
+            formMessage.style.backgroundColor = '#d4edda';
+            formMessage.style.color = '#155724';
+            formMessage.style.borderLeft = '4px solid #28a745';
+            formMessage.textContent = data.message;
+            
+            // Reset form
+            document.getElementById('feedbackForm').reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+              formMessage.style.display = 'none';
+            }, 5000);
+          } else {
+            formMessage.style.backgroundColor = '#f8d7da';
+            formMessage.style.color = '#721c24';
+            formMessage.style.borderLeft = '4px solid #f5c6cb';
+            formMessage.textContent = data.message || 'An error occurred. Please try again.';
+          }
+          
+          // Re-enable submit button
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Schedule Consultation';
+        })
+        .catch(error => {
+          formMessage.style.display = 'block';
+          formMessage.style.backgroundColor = '#f8d7da';
+          formMessage.style.color = '#721c24';
+          formMessage.style.borderLeft = '4px solid #f5c6cb';
+          formMessage.textContent = 'An error occurred. Please try again later.';
+          
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Schedule Consultation';
+        });
+      });
+    </script>
   </body>
 </html>
