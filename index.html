@@ -262,6 +262,10 @@ Ntinda Rd, Kampala
                 <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your phone number" style="background-color: white; border: 1px solid #ddd; color: #1a1a1a;" required>
               </div>
               <div class="form-group">
+                <label for="subject" style="color: #1a1a1a;">Subject *</label>
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Matter or inquiry" style="background-color: white; border: 1px solid #ddd; color: #1a1a1a;" required>
+              </div>
+              <div class="form-group">
                 <label for="message" style="color: #1a1a1a;">How can we help you? *</label>
                 <textarea rows="5" class="form-control" id="message" name="message" placeholder="Please describe your legal matter..." style="background-color: white; border: 1px solid #ddd; color: #1a1a1a;" required></textarea>
               </div>
@@ -322,7 +326,7 @@ Ntinda Rd, Kampala
           </div>
         </div>
         <div style="border-top: 1px solid #1e5a96; padding-top: 20px; text-align: center;">
-          <p style="margin: 0; color: #d4af37;">© Zenith Legal Advocates, PLLC, 2026 | All Rights Reserved</p>
+          <p style="margin: 0; color: #ffffff;">© Zenith Legal Advocates, PLLC, 2026 | All Rights Reserved</p>
         </div>
       </div>
     </footer>
@@ -331,5 +335,71 @@ Ntinda Rd, Kampala
     <!-- Include all compiled plugins (below), or include individual files as needed --> 
     <script src="js/popper.min.js"></script> 
     <script src="js/bootstrap-4.4.1.js"></script>
+    <script>
+      // Handle consultation form submission
+      document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var phone = document.getElementById('phone').value;
+        var subject = document.getElementById('subject').value;
+        var message = document.getElementById('message').value;
+        
+        // Create FormData object to send the form data
+        var formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('phone', phone);
+        formData.append('subject', subject);
+        formData.append('message', message);
+        
+        // Send data to PHP backend
+        fetch('save_consultation.php', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          var messageDiv = document.createElement('div');
+          messageDiv.style.padding = '15px';
+          messageDiv.style.marginBottom = '20px';
+          messageDiv.style.borderRadius = '5px';
+          messageDiv.style.fontWeight = 'bold';
+          
+          if (data.status === 'success') {
+            messageDiv.style.backgroundColor = '#d4edda';
+            messageDiv.style.color = '#155724';
+            messageDiv.style.borderLeft = '4px solid #28a745';
+            // Reset the form
+            document.getElementById('feedbackForm').reset();
+            // Clear the message after 5 seconds
+            setTimeout(function() {
+              messageDiv.remove();
+            }, 5000);
+          } else {
+            messageDiv.style.backgroundColor = '#f8d7da';
+            messageDiv.style.color = '#721c24';
+            messageDiv.style.borderLeft = '4px solid #dc3545';
+          }
+          
+          messageDiv.textContent = data.message;
+          document.getElementById('feedbackForm').insertAdjacentElement('beforebegin', messageDiv);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          var errorDiv = document.createElement('div');
+          errorDiv.style.padding = '15px';
+          errorDiv.style.marginBottom = '20px';
+          errorDiv.style.backgroundColor = '#f8d7da';
+          errorDiv.style.color = '#721c24';
+          errorDiv.style.borderRadius = '5px';
+          errorDiv.style.fontWeight = 'bold';
+          errorDiv.style.borderLeft = '4px solid #dc3545';
+          errorDiv.textContent = 'An error occurred while submitting the form. Please try again.';
+          document.getElementById('feedbackForm').insertAdjacentElement('beforebegin', errorDiv);
+        });
+      });
+    </script>
   </body>
 </html>

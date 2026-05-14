@@ -263,7 +263,7 @@
         submitBtn.textContent = 'Submitting...';
         
         // Send form data to PHP handler
-        fetch('submit_form.php', {
+        fetch('save_consultation.php', {
           method: 'POST',
           body: formData
         })
@@ -271,7 +271,7 @@
         .then(data => {
           formMessage.style.display = 'block';
           
-          if (data.success) {
+          if (data.status === 'success') {
             formMessage.style.backgroundColor = '#d4edda';
             formMessage.style.color = '#155724';
             formMessage.style.borderLeft = '4px solid #28a745';
