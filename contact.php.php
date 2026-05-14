@@ -58,7 +58,7 @@
       }
     </style>
   </head>
-  <body style="background-image: url('images/contacts_bg.jpg'); background-size: cover; background-attachment: fixed; background-repeat: no-repeat;">
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0a3d62; box-shadow: 0 2px 10px rgba(0,0,0,0.3);">
       <div class="container">
         <a class="navbar-brand" href="index.html" style="display: flex; align-items: center; gap: 15px;">
@@ -112,16 +112,16 @@
             <div style="background-color: #f8f9fa; padding: 40px; border-radius: 8px;">
               <h2 style="color: #1a1a1a; margin-bottom: 30px; font-size: 1.8rem; font-weight: bold;">Contact Information</h2>
               <div style="margin-bottom: 30px;">
-                <h4 style="color: #0a3d62; margin-bottom: 15px; font-weight: bold;">Phone</h4>
+                <h4 style="color: #e74c3c; margin-bottom: 15px; font-weight: bold;">Phone</h4>
                 <a href="tel:+256750100200" style="color: #1a1a1a; text-decoration: none; font-size: 1.2rem; font-weight: bold;">+256 750 100 200</a> / <a href="tel:+256782300400" style="color: #1a1a1a; text-decoration: none; font-size: 1.2rem; font-weight: bold;">+256 782 300 400</a>
                 <p style="color: #888; margin-top: 5px;">Monday - Friday: 8:00 AM - 5:00 PM</p>
               </div>
               <div style="margin-bottom: 30px;">
-                <h4 style="color: #0a3d62; margin-bottom: 15px; font-weight: bold;">Email</h4>
+                <h4 style="color: #e74c3c; margin-bottom: 15px; font-weight: bold;">Email</h4>
                 <a href="mailto:info@zenithlegal.co.ug" style="color: #1a1a1a; text-decoration: none; font-size: 1.1rem;">info@zenithlegal.co.ug</a>
               </div>
               <div style="margin-bottom: 30px;">
-                <h4 style="color: #0a3d62; margin-bottom: 15px; font-weight: bold;">Office Address</h4>
+                <h4 style="color: #e74c3c; margin-bottom: 15px; font-weight: bold;">Office Address</h4>
                 <p style="color: #555; line-height: 1.8;">
                   ZENITH LEGAL ADVOCATES<br>
                   Fraine Supermarket | Ntinda<br>
@@ -130,7 +130,7 @@
                 </p>
               </div>
               <div>
-                <h4 style="color: #0a3d62; margin-bottom: 15px; font-weight: bold;">Hours of Operation</h4>
+                <h4 style="color: #e74c3c; margin-bottom: 15px; font-weight: bold;">Hours of Operation</h4>
                 <p style="color: #555; line-height: 1.8;">
                   <strong>Monday - Friday:</strong> 8:00 AM - 5:00 PM<br>
                   <strong>Saturday - Sunday:</strong> Closed<br>
